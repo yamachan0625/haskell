@@ -5,6 +5,7 @@ concatAll xs = foldl (++) "" xs
 sumOfSquares xs = foldl (+) 0 (map (^2) xs)
 
 -- リストが空になったらinitを返す
+myFoldl :: (init -> a -> init) -> init -> [a] -> init
 myFoldl f init [] = init
 myFoldl f init (x:xs) = myFoldl f newInit xs
   where newInit = f init x
